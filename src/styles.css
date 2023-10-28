@@ -26,13 +26,15 @@ ul {
   font-family: 'Courier New', Courier, monospace;
   }
   
-  .temperature-icon  {
-    font-size: 64px;
+  .weather-temperature strong  {
+    font-size: 40px;
     font-weight: 600;
     line-height: 1;
+    color: #f70776;
+    
   }
-  .units {
-    top: -10px;
+  .weather-temperature .units {
+    top: -30px;
      position: relative;
   }
   .weather-temperature .active {
