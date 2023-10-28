@@ -26,11 +26,10 @@ ul {
   font-family: 'Courier New', Courier, monospace;
   }
   
-  .temperature-icon {
+  .temperature-icon  {
     font-size: 64px;
     font-weight: 600;
     line-height: 1;
-  
   }
   .units {
     top: -10px;
