@@ -1,0 +1,47 @@
+
+ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    list-style: none;
+    text-transform: capitalize;
+  }
+  .weather-wrapper {
+    max-width: 600px;
+    margin:30px auto;
+  }
+  .weather-application {
+    border: 5px solid #f70776;
+    padding: 20px;
+    border-radius: 10px;
+    
+  }
+  .location {
+  margin-bottom: 20px;
+  }
+  body {
+   background:  linear-gradient(109.6deg, rgb(17, 151, 147) 11.2%, rgb(154, 214, 212) 55.4%, rgb(255, 233, 171) 100.2%);
+  font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .temperature-icon {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1;
+  
+  }
+  .units {
+    top: -10px;
+     position: relative;
+  }
+  .weather-temperature .active {
+    color: black;
+    cursor: default;
+    text-decoration: none;
+  }
+  .weather-temperature .active:hover {
+    text-decoration: none;
+  }
+  
