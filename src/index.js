@@ -74,6 +74,41 @@ function formatDate(timestamp) {
     let temperatureElement = document.querySelector("#temperature-icon"); 
     temperatureElement.innerHTML = Math.round(celsiusTemp);
   }
+  function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHtml="";
+
+    let period=["Thursday", "Friday", "Saturday", "Sunday"];
+    period.forEach(function(era) {
+ forecastHtml=
+ forecastHtml +
+ `
+       <div class="weather-forecast-day">
+      
+        <div class="weather-forecast">
+        <div class="weather-date">
+    ${era}
+    </div>
+    <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="" width="42"/>
+    <br />
+    <div class="weather-date-temperature">
+      <span class="weather-date-minimum">
+    23° 
+    </span>
+    <span class="weather-date-maximum">
+    | 12°
+    </span>
+    </div>
+      </div>
+      </div>
+      
+    </div>
+    `;
+    });
+  
+forecastElement.innerHTML=forecastHtml;
+
+   }
   
   let celsiusTemp = null;
   
@@ -88,3 +123,4 @@ function formatDate(timestamp) {
   
   
   look("Paris");
+ displayForecast();
