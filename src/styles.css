@@ -45,4 +45,13 @@ ul {
   .weather-temperature .active:hover {
     text-decoration: none;
   }
-  
+  .weather-days {
+    margin-top: 20px;
+    text-align: center;
+  }
+.weather-date {
+  font-size: 16px;
+}
+.weather-date-temperature {
+  font-size: 13px;
+}
