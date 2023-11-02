@@ -75,14 +75,6 @@ function formatDate(timestamp) {
     temperatureElement.innerHTML = Math.round(celsiusTemp);
   }
 
-function formatDay(datestamp) {
-  let date = new Date(datestamp * 1000);
-  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
-
-  return days[date.getDay()];
-}
-
-
 
 function getForecast(city) {
 let apiKey="bd5b4461863eddaa6ced0a0a67989e0a";
@@ -91,9 +83,17 @@ axios(apiUrl).then(displayForecast);
 
 }
 
+  function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
+  
+    return days[date.getDay()];
+  }
+
+
 
   function displayForecast(response) {
-
+console.log(response.data);
 
     let forecastElement = document.querySelector("#forecast");
     let forecastHtml="";
