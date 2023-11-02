@@ -74,40 +74,59 @@ function formatDate(timestamp) {
     let temperatureElement = document.querySelector("#temperature-icon"); 
     temperatureElement.innerHTML = Math.round(celsiusTemp);
   }
-  function displayForecast() {
+
+function formatDay(datestamp) {
+  let date = new Date(datestamp * 1000);
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
+
+  return days[date.getDay()];
+}
+
+
+
+function getForecast(city) {
+let apiKey="bd5b4461863eddaa6ced0a0a67989e0a";
+let apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+axios(apiUrl).then(displayForecast);
+
+}
+
+
+  function displayForecast(response) {
+
+
     let forecastElement = document.querySelector("#forecast");
     let forecastHtml="";
-
-    let period=["Thursday", "Friday", "Saturday", "Sunday"];
-    period.forEach(function(era) {
- forecastHtml=
- forecastHtml +
- `
-       <div class="weather-forecast-day">
+  
+    
+    response.data.list.forEach(function(era, index) {
+      if (index < 5) {
+  forecastHtml=
+  forecastHtml +
+  `
+  <div class="col">
+    <div class=" weather-forecast">
       
-        <div class="weather-forecast">
-        <div class="weather-date">
-    ${era}
+    <h5 class="weather-date">${formatDay(era.dt)}</h5>
+    <div class="weather-forecast-icon"> <img src= "https://openweathermap.org/img/wn/${era.weather[0].icon}@2x.png" />
     </div>
-    <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="" width="42"/>
-    <br />
     <div class="weather-date-temperature">
       <span class="weather-date-minimum">
-    23° 
+     ${Math.round(era.main.temp_max)}°
     </span>
     <span class="weather-date-maximum">
-    | 12°
+    ${Math.round(era.main.temp_min)}°
     </span>
     </div>
-      </div>
-      </div>
-      
+    </div>
+    </div>
     </div>
     `;
+  }
     });
   
-forecastElement.innerHTML=forecastHtml;
-
+  forecastElement.innerHTML=forecastHtml;
+  
    }
   
   let celsiusTemp = null;
@@ -123,4 +142,4 @@ forecastElement.innerHTML=forecastHtml;
   
   
   look("Paris");
- displayForecast();
+  getForecast("Paris");
